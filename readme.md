@@ -1,10 +1,9 @@
 ## Prerequisites
 <ul>
 <li>After cloning this repository, go to the root folder, run the following command/s,
-
+<pre>
     composer install
-    composer update 
-     
+    composer update</pre>
 </li>
 <li>Rename .env.example to .env and provide your database details there.</li>
 
