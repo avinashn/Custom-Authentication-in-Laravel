@@ -43,7 +43,15 @@
 				<div id="Login" class="w3-container form">
 					<div class="w3-container ">
 						<div class="w3-section">
-							<br> <br>
+							<br> <br>@if (count($errors->login) > 0)
+							<div class="alert alert-danger">
+								<ul>
+									@foreach ($errors->login->all() as $error)
+									<P>{{ $error }}</p>
+									@endforeach
+								</ul>
+							</div>
+							@endif 
 							@if (Session::has('message'))
 							<div class="alert alert-warning">{{ Session::get('message') }}</div>
 							@endif
@@ -74,7 +82,16 @@
 				<div class="w3-container">
 					<div class="w3-section">
 
-						<br> <br>
+						<br> <br> 
+						@if (count($errors->register) > 0)
+						<div class="alert alert-danger">
+							<ul>
+								@foreach ($errors->register->all() as $error)
+								<P>{{ $error }}</p>
+								@endforeach
+							</ul>
+						</div>
+						@endif
 						<form action="/register" method="POST" id="regForm">
 							{{ csrf_field() }} <input type="hidden" name="redirurl"
 								value="{{ $_SERVER['REQUEST_URI'] }}"> <label><b>Email</b></label>
@@ -82,8 +99,8 @@
 								name="email" placeholder="Enter Email"
 								value="{{ old('email') }}" required> <label><b>Username</b></label>
 							<input class="w3-input w3-border w3-margin-bottom" type="text"
-								name="username" placeholder="Enter username" required
-								value="{{ old('username') }}"> <label><b>Password</b></label> <input
+								name="name" placeholder="Enter username" required
+								value="{{ old('name') }}"> <label><b>Password</b></label> <input
 								class="w3-input w3-border w3-margin-bottom" type="password"
 								name="password" required placeholder="Enter Password"> <label><b>Confirm
 									Password</b></label> <input
@@ -116,6 +133,10 @@ function openForm(formName) {
 </script>
 @if (Session::has('message'))
 	<script>  $('#auth').click(); </script>
+	@endif @if($errors->login->any())
+	<script>  $('#auth').click();</script>
+	@endif @if($errors->register->any())
+	<script>  $('#auth').click(); openForm('Register');</script>
 	@endif
 </body>
 </html>
