@@ -49,7 +49,7 @@ public function login(Request $request) {
 			return Redirect::back ()->withErrors ( $validator, 'register' )->withInput ();
 		} else {
 			$user = new User ();
-			$user->name = $request->get ( 'username' );
+			$user->name = $request->get ( 'name' );
 			$user->email = $request->get ( 'email' );
 			$user->password = Hash::make ( $request->get ( 'password' ) );
 			$user->remember_token = $request->get ( '_token' );
