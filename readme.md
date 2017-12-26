@@ -13,8 +13,11 @@
 </ul>
 
 ## Working Demo
-You can see the demo of the project <a href="http://justlaravel.com/demos/customAuthentication/">here</a>
+You can see the demo of the project <a href="http://demos.justlaravel.com/customAuthentication/">here</a>
 
 ## Reference Post
 <a href="http://justlaravel.com/custom-authentication-in-laravel/">http://justlaravel.com/custom-authentication-in-laravel/
 </a>
+
+## YouTube Video:
+https://www.youtube.com/watch?v=suJlkjbU4aI
